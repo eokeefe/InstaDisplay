@@ -3,6 +3,7 @@
     "iron-router": {},
     "accounts-instagram": {},
     "instagram-wrapper": {},
-    "npm": {}
+    "npm": {},
+    "fast-render": {}
   }
 }
