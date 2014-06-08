@@ -39,28 +39,11 @@ img {
 	margin: 0 auto;
 }
 
-#cont {
-	position: absolute;
-	bottom: 20px;
-	z-index: 70;
-	overflow: auto;
-}
-
 h1 {
 	position: relative;
-	margin-bottom: -63px;
-	width: 140px;
-	opacity: 0.99;
+	text-align: center;
+	top: 70%;
 	z-index: 80;
-}
-
-.large {
-	text-align: right;
-	top: 20%;
-	right: 120px;
-	font-size: 13px;
-}
-
-.large h1 {
-	font-size: 60px;
+	font-size: 180px;
+	margin: 0px;
 }
