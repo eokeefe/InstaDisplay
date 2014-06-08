@@ -8,3 +8,4 @@ autopublish
 insecure
 jquery
 iron-router
+fast-render

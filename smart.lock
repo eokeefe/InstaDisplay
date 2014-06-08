@@ -5,7 +5,8 @@
       "iron-router": {},
       "accounts-instagram": {},
       "instagram-wrapper": {},
-      "npm": {}
+      "npm": {},
+      "fast-render": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/arunoda/meteor-npm.git",
         "tag": "v0.2.6",
         "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
+      },
+      "fast-render": {
+        "git": "https://github.com/arunoda/meteor-fast-render.git",
+        "tag": "v0.2.6",
+        "commit": "6ff59e07dc5ec9cd2f5d334ff95ff181d86965b5"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
