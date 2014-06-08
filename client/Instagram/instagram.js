@@ -1,7 +1,7 @@
 var INSTAID = 'f2110566dd014ef8b818cf9e621dfb5d';
 var markersArray = [];
 var instaArray = [];
-var ACCESSTOKEN = "";
+var ACCESSTOKEN = ""; //"App Secret";
 
 Meteor.startup(function(){
 

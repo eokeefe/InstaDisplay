@@ -1,0 +1,41 @@
+<template name="instagram">
+    <div id="photos-container">
+        {{#each photoset}}
+        <div class="photodiv" >
+            <img class="photo" src="{{ images.low_resolution.url }}" alt="">
+            <a href="http://instagram.com/{{ user.username }}" target="_blank">
+                <span>
+                    <img class="profilePicture" src="{{user.profile_picture}}" />
+                    @{{ user.username }}
+                </span>
+                <br/>
+            </a>
+            <span class="caption">
+                {{#if caption}}
+                    <a href="{{link}}" target="_blank"><span>{{ caption.text }}</span></a>
+                {{else}}
+                    <a href="{{link}}" target="_blank"><span>No Comment...</span></a>
+                {{/if}}
+            </span>
+            <span class="social-coffee">                
+                <div class="facebook">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{link}}&t=via http://instahood.meteor.com" target="_blank">
+                        <div class="fb-button"></div>
+                    </a>
+                </div>
+            </span>
+        </div>
+        {{else}}
+            <!-- <span class="loading">LOADING... </span>
+            <div class="bubblingG">
+                <span id="bubblingG_1">
+                </span>
+                <span id="bubblingG_2">
+                </span>
+                <span id="bubblingG_3">
+                </span>
+            </div> -->
+        {{/each}}
+        <span id="zoomed-image"></span>
+    </div>
+</template>
