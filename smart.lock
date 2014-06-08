@@ -6,7 +6,8 @@
       "accounts-instagram": {},
       "instagram-wrapper": {},
       "npm": {},
-      "fast-render": {}
+      "fast-render": {},
+      "instagram": {}
     },
     "packages": {
       "iron-router": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/arunoda/meteor-fast-render.git",
         "tag": "v0.2.6",
         "commit": "6ff59e07dc5ec9cd2f5d334ff95ff181d86965b5"
+      },
+      "instagram": {
+        "git": "https://github.com/bjryan2/Meteor-Instragram.git",
+        "tag": "v0.2.2",
+        "commit": "e367dc7c5f9d0164ec09f65b9d40058620e312bc"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
