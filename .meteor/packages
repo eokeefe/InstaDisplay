@@ -6,9 +6,23 @@
 standard-app-packages
 autopublish
 insecure
-jquery
 iron-router
 fast-render
+<<<<<<< HEAD
 accounts-facebook
 accounts-ui
 instagram
+=======
+http
+npm
+oauth
+oauth2
+accounts-base
+accounts-oauth
+underscore
+random
+service-configuration
+templating
+instagram-wrapper
+jquery
+>>>>>>> Database-setup

@@ -3,6 +3,6 @@ Template.currentTag.helpers({
 		var size = Tags.find().count(),
 			photos = Tags.find().fetch();
 
-		return photos[1].img;
+		return photos[10].img;
 	}
 });

@@ -1,10 +1,12 @@
 {
   "packages": {
     "iron-router": {},
-    "accounts-instagram": {},
-    "instagram-wrapper": {},
     "npm": {},
     "fast-render": {},
+<<<<<<< HEAD
     "instagram": {}
+=======
+    "instagram-wrapper": {}
+>>>>>>> Database-setup
   }
 }
