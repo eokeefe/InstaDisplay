@@ -25,4 +25,8 @@ service-configuration
 templating
 instagram-wrapper
 jquery
+<<<<<<< HEAD
+>>>>>>> Database-setup
+=======
+bootstrap
 >>>>>>> Database-setup

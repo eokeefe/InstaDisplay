@@ -1,8 +1,7 @@
 Template.currentTag.helpers({
-	Tag: function () {
-		var size = Tags.find().count(),
-			photos = Tags.find().fetch();
+	Tag: function (i) {
+		var photos = Tags.find().fetch();
 
-		return photos[10].img;
+		return photos[i].img;
 	}
 });
