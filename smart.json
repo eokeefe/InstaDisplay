@@ -3,10 +3,6 @@
     "iron-router": {},
     "npm": {},
     "fast-render": {},
-<<<<<<< HEAD
-    "instagram": {}
-=======
     "instagram-wrapper": {}
->>>>>>> Database-setup
   }
 }

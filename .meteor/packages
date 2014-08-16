@@ -8,11 +8,6 @@ autopublish
 insecure
 iron-router
 fast-render
-<<<<<<< HEAD
-accounts-facebook
-accounts-ui
-instagram
-=======
 http
 npm
 oauth
