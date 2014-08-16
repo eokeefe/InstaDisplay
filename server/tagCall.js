@@ -3,19 +3,19 @@ instagram = new Instagram.createClient('5166661f18554a699feaed3de378c3bf', 'bfeb
 Fiber = Npm.require('fibers');
 
 // Tag Count
-instagram.tags.tag('medx', function (tag, error) { 
+instagram.tags.tag('pamurico', function (tag, error) { 
 	Fiber(function () {
-		console.log(tag);
+		// console.log(tag);
 		if (Info.find().count() === 0) Info.insert(tag);
 		else Info.update("media_count", tag);
 	}).run();
 });
 
-instagram.tags.media('medx', function (tag, error) { 
+instagram.tags.media('pamurico', {min_id: 20}, function (tag, error) { console.log(tag);
 	Fiber(function() {
 		if (Tags.find().count() === 0) {
 			for (i = 0; i < tag.length; ++i) {
-				// console.log(tag[i].images.standard_resolution.url);
+				console.log(tag[i].images.standard_resolution.url);
 				Tags.insert({
 					order: i,
 					img: tag[i].images.standard_resolution.url, 
