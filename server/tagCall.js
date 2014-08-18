@@ -1,21 +1,23 @@
 
-// Build Instagram Object
+// Build Objects
 instagram = new Instagram.createClient('5166661f18554a699feaed3de378c3bf', 'bfebf48354df4928a0aab8efec13d906');
 Fiber = Npm.require('fibers');
 
-// Tag Count
-instagram.tags.tag('pamurico', function (tag, err) { 
-	try {
-		Fiber(function () {
-			if (Info.find().count() === 0) Info.insert(tag);
-			else Info.update("media_count", tag);
-		}).run();
-	} catch (err) {
-		throw err;
-	}
-});
+// Tag info
+instaINFO = function () {
+	instagram.tags.tag('pamurico', function (tag, err) { 
+		try {
+			Fiber(function () {
+				if (Info.find().count() === 0) Info.insert(tag);
+				else Info.update("media_count", tag);
 
-var instaDB = function (pagi) {
+				console.log("currently " + tag.media_count + " tags for "  + tag.name); // Change to display from DB
+			}).run();
+		} catch (err) { throw err; };
+	});
+};
+
+instaDB = function (pagi) {
 	instagram.tags.media('pamurico', {max_tag_id: pagi}, function (tag, err, pag) { // for max_tag_id get next_max_tag_id from pag
 		try {
 			Fiber(function() { 
@@ -31,7 +33,4 @@ var instaDB = function (pagi) {
 			throw err;
 		}
 	});
-}
-
-instaDB('0');
-instaDB('1402721579746994');
+};
