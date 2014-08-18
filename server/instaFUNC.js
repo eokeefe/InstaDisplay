@@ -8,15 +8,16 @@ instaINFO = function () {
 	instagram.tags.tag('pamurico', function (tag, err) { 
 		try {
 			Fiber(function () {
-				if (Info.find().count() === 0) Info.insert(tag);
-				else Info.update("media_count", tag);
+				if (Info.find().count() === 0) Info.insert(tag); // Build
+				else Info.update("media_count", tag); // Update
 
 				console.log("currently " + tag.media_count + " tags for "  + tag.name); // Change to display from DB
 			}).run();
-		} catch (err) { throw err; };
+		} catch (err) { throw err; }; // Error management
 	});
 };
 
+// Instagram to DB
 instaDB = function (pagi) {
 	instagram.tags.media('pamurico', {max_tag_id: pagi}, function (tag, err, pag) { // for max_tag_id get next_max_tag_id from pag
 		try {
