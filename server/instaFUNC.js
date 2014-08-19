@@ -4,8 +4,8 @@ instagram = new Instagram.createClient('5166661f18554a699feaed3de378c3bf', 'bfeb
 Fiber = Npm.require('fibers');
 
 // Tag info
-instaINFO = function () {
-	instagram.tags.tag('pamurico', function (tag, err) { 
+instaINFO = function (tag) {
+	instagram.tags.tag(tag, function (tag, err) { 
 		try {
 			Fiber(function () {
 				if (Info.find().count() === 0) Info.insert(tag); // Build
@@ -18,20 +18,24 @@ instaINFO = function () {
 };
 
 // Instagram to DB
-instaDB = function (pagi) {
-	instagram.tags.media('pamurico', {max_tag_id: pagi}, function (tag, err, pag) { // for max_tag_id get next_max_tag_id from pag
+instaDB = function (tag, id) {
+	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) { // max_tag_id use next_max_tag_id from pag
 		try {
 			Fiber(function() { 
 				// Tag to DB
 				for (i = 0; i < tag.length; ++i) { 
 					Tags.insert(tag[i]);
 					New.insert(tag[i]);
-				}; 
+				};
 
-				Pagi.insert(pag); // Pagination to DB
+				// Pagination to DB
+				var max = pag.next_max_id, min = pag.next_min_id;
+				if (Pagi.find().count() === 0) { 
+					Pagi.insert({next_max_id: max, next_min_id: min, name: "pagi"});
+				} else { 
+					Pagi.update({name: "pagi"}, {next_max_id: max, next_min_id: min, name: "pagi"});
+				};
 			}).run();
-		} catch (err) {
-			throw err;
-		}
+		} catch (err) { throw err; }; // Error management
 	});
 };
