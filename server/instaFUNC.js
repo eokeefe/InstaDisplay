@@ -8,8 +8,9 @@ instaINFO = function (tag) {
 	instagram.tags.tag(tag, function (tag, err) { 
 		try {
 			Fiber(function () {
-				if (Info.find().count() === 0) Info.insert(tag); // Build
-				else Info.update("media_count", tag); // Update
+				var count = tag.media_count, name = tag.name;
+				if (Info.find().count() === 0) { Info.insert({type: "info", media_count: count, name: name}); } // Build
+				else { Info.update({type: "info"}, {type: "info", media_count: count, name: name}); } // Update
 
 				console.log("currently " + tag.media_count + " tags for "  + tag.name); // Change to display from DB
 			}).run();
@@ -31,9 +32,9 @@ instaDB = function (tag, id) {
 				// Pagination to DB
 				var max = pag.next_max_id, min = pag.next_min_id;
 				if (Pagi.find().count() === 0) { 
-					Pagi.insert({next_max_id: max, next_min_id: min, name: "pagi"});
+					Pagi.insert({next_max_id: max, next_min_id: min, type: "pagi"});
 				} else { 
-					Pagi.update({name: "pagi"}, {next_max_id: max, next_min_id: min, name: "pagi"});
+					Pagi.update({type: "pagi"}, {next_max_id: max, next_min_id: min, type: "pagi"});
 				};
 			}).run();
 		} catch (err) { throw err; }; // Error management
