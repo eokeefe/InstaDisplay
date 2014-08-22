@@ -1,5 +1,6 @@
 
-// Build Objects
+/////////////////// Instagram based functions ///////////////////
+// Objects
 instagram = new Instagram.createClient('5166661f18554a699feaed3de378c3bf', 'bfebf48354df4928a0aab8efec13d906');
 Fiber = Npm.require('fibers');
 
@@ -40,3 +41,27 @@ instaDB = function (tag, id) {
 		} catch (err) { throw err; }; // Error management
 	});
 };
+
+/////////////////// Instagram based functions ///////////////////
+
+/////////////////////////////////////////////////////////////////
+
+/////////////////////// APP Functionality ///////////////////////
+
+var tag = "pamurico"; // Tag in question
+
+instaINFO(tag); // Collect information on tag
+instaDB(tag, '0'); // Collect arcived data
+
+Pagi.find().observe({ 
+	added: function (doc) {
+		if (doc.next_max_id !== null) instaDB(tag, doc.next_max_id)
+		else console.log("DB is currently up to date.");
+	},
+	changed: function (doc) {
+		if (doc.next_max_id !== null) instaDB(tag, doc.next_max_id)
+		else console.log("DB is currently up to date.");
+	}
+});
+
+/////////////////////// APP Functionality ///////////////////////
