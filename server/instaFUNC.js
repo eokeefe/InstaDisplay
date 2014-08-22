@@ -1,5 +1,6 @@
 
 /////////////////// Instagram based functions ///////////////////
+
 // Objects
 instagram = new Instagram.createClient('5166661f18554a699feaed3de378c3bf', 'bfebf48354df4928a0aab8efec13d906');
 Fiber = Npm.require('fibers');
@@ -47,6 +48,12 @@ instaDB = function (tag, id) {
 /////////////////////////////////////////////////////////////////
 
 /////////////////////// APP Functionality ///////////////////////
+
+Meteor.startup(function () {
+	Tags.remove({});
+	Pagi.remove({});
+	New.remove({});
+});
 
 var tag = "pamurico"; // Tag in question
 
