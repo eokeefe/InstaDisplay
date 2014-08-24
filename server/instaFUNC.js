@@ -7,6 +7,7 @@ Fiber = Npm.require('fibers');
 
 // Tag info
 instaINFO = function (tag) {
+	if (tag === undefined) {console.log("tag not defined"); return }
 	instagram.tags.tag(tag, function (tag, err) { 
 		try {
 			Fiber(function () {
@@ -22,7 +23,8 @@ instaINFO = function (tag) {
 
 // Instagram to DB
 instaARCHIVE = function (tag, id) {
-	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) { // max_tag_id use next_max_tag_id from pag
+	if (tag === undefined) {console.log("tag not defined"); return }
+	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) {
 		try {
 			Fiber(function() { 
 				// Tag to DB
@@ -41,21 +43,16 @@ instaARCHIVE = function (tag, id) {
 };
 
 instaUPDATE = function (tag, id) {
-	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) { // max_tag_id use next_max_tag_id from pag
+	if (tag === undefined) {console.log("tag not defined"); return }
+	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) {
 		try {
 			Fiber(function() { 
 				// Tag to DB
 				for (i = 0; i < tag.length; ++i) { 
-					Tags.insert(tag[i]);
-					New.insert(tag[i]);
-				};
-
-				// Pagination to DB
-				var max = pag.next_max_id, min = pag.next_min_id;
-				if (Pagi.find().count() === 0) { 
-					Pagi.insert({next_max_id: max, next_min_id: min, type: "pagi"});
-				} else { 
-					Pagi.update({type: "pagi"}, {next_max_id: max, next_min_id: min, type: "pagi"});
+					// Tags.insert(tag[i]);
+					if(Tags.findOne({"images.standard_resolution.url": tag[i].images.standard_resolution.url}) === null) {
+						Tags.insert(tag[i]);
+					} 
 				};
 			}).run();
 		} catch (err) { throw err; }; // Error management
@@ -79,14 +76,14 @@ Pagi.find().observe({
 		if (doc.next_max_id !== null) instaARCHIVE(tag, doc.next_max_id)
 		else {
 			console.log("DB is currently up to date.");
-			// setTimeout(maintain(), 100000);
+			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 10000);
 		}
 	},
 	changed: function (doc) {
 		if (doc.next_max_id !== null) instaARCHIVE(tag, doc.next_max_id)
 		else {
 			console.log("DB is currently up to date.");
-			// Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 10000);
+			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 10000);
 		}
 	}
 });
