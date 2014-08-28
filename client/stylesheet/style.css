@@ -1,0 +1,38 @@
+body {
+	background: #8d1818;
+	font-family: 'Crimson Text', serif;
+}
+
+#header {
+	text-align: center;
+	background: #fff;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100px;
+	box-shadow: 0px 3px 15px black;
+}
+
+#header > h1 {
+	color : #8d1818;
+	font-size: 6em;
+	line-height: 70px;
+	font-weight: normal;
+	margin: 0px
+}
+
+#footer {
+	text-align: center;
+	background: #fff;
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	box-shadow: 0px -3px 15px black;
+}
+
+#footer > img {
+	height: 5em;
+}
