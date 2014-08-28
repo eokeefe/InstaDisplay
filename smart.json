@@ -3,6 +3,7 @@
     "iron-router": {},
     "npm": {},
     "fast-render": {},
-    "instagram-wrapper": {}
+    "instagram-wrapper": {},
+    "jquery-masonry": {}
   }
 }
