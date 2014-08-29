@@ -1,34 +1,6 @@
-<template name="BKoriginal">
-	<div id="bg">
-		<div>
-			<table cellpadding="0" cellspacing="0">
-				<tr>
-					<td>
-						{{> currentTag}}
-						<pre id="result"></pre>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-</template>
 
-<template name="BKbootstrap">
-	<div id="myCarousel" class="carousel slide">
-		<div class="carousel-inner">
-			{{> currentTag}}
-		</div>
-	</div>
-
-	<script type="text/javascript">
-		$('.carousel').carousel({interval: 5000});
-	</script>
-</template>
-
-<!-- FOR TESTING BACKEND ONLY! -->
-<template name="gallery">
-	<div class="row-fluid">
+<template name="masonry">
+	<ul class="grid effect-4" id="grid">
 		{{> currentTag}}
-	</div>
+	</ul>
 </template>
-<!-- FOR TESTING BACKEND ONLY! -->

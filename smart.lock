@@ -5,7 +5,8 @@
       "iron-router": {},
       "npm": {},
       "fast-render": {},
-      "instagram-wrapper": {}
+      "instagram-wrapper": {},
+      "jquery-masonry": {}
     },
     "packages": {
       "iron-router": {
@@ -28,15 +29,15 @@
         "tag": "v0.0.1",
         "commit": "58955b290e838d942e15b9fbf663106abd59ba5e"
       },
+      "jquery-masonry": {
+        "git": "https://github.com/waltyuyu/meteor-jquery-masonry.git",
+        "tag": "v0.1.0",
+        "commit": "ec514fa4440f3cd77f5f567f25be27dc38ab57fa"
+      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
         "commit": "4a2d53e35ba036b0c189c7ceca34be494d4c6c97"
-      },
-      "instagram": {
-        "git": "https://github.com/bjryan2/Meteor-Instragram.git",
-        "tag": "v0.2.2",
-        "commit": "e367dc7c5f9d0164ec09f65b9d40058620e312bc"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
