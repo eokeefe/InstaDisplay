@@ -1,8 +1,2 @@
 
-packages/instagram
 
-.meteor/.id
-
-.meteor/versions
-
-client/views/currentTag.html
