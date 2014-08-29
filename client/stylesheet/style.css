@@ -36,3 +36,7 @@ body {
 #footer > img {
 	height: 5em;
 }
+
+#container {
+	margin-top: 100px;
+}
