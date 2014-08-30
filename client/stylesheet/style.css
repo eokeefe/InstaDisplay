@@ -40,3 +40,7 @@ body {
 #container {
 	margin: 100px 0px 75px;
 }
+
+.item {
+	width: 25%;
+}
