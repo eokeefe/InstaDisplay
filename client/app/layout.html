@@ -1,9 +1,16 @@
 <template name="layout">
-	<!-- BACKGROUND -->
-	{{> gallery}}<!-- FOR TESTING BACKEND ONLY! -->
+		<!-- HEADER -->
+		<div id="header">
+			{{> header}}
+		</div>
 
-	<!-- TITLE -->
-	<div class="banner">
-		<h1>#{{name}}</h1>
-	</div>
+		<!-- BACKGROUND -->
+		<div id="container">
+			{{> currentTag}}
+		</div>
+
+		<!-- FOOTER -->
+		<div id="footer">
+			{{> footer}}
+		</div>
 </template>

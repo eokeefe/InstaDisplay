@@ -1,4 +1,4 @@
-Template.layout.helpers({
+Template.header.helpers({
 	name: function () {
 		var info = Info.find().fetch();
 

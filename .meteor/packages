@@ -20,4 +20,6 @@ service-configuration
 templating
 instagram-wrapper
 jquery
-bootstrap
+mrt:jquery-masonry
+dburles:packery
+
