@@ -1,8 +1,16 @@
 
 <template name="currentTag">
 	{{#each Tag}}
-		<div class="item">
+		{{#if idx}}
+		<div class="item large">
 			<img src="{{ images.standard_resolution.url }}">
+
+			<img class="user" src="{{ user.profile_picture }}">
 		</div>
+		{{else}}
+			<div class="item">
+				<img src="{{ images.standard_resolution.url }}">
+			</div>
+		{{/if}}
 	{{/each}}
 </template>
