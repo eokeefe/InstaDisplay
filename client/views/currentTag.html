@@ -1,5 +1,6 @@
 <template name="currentTag">
 	{{#each Tag}}
+<<<<<<< HEAD
 		{{#if idx}}
 		<div class="item large">
 			<img src="{{ images.standard_resolution.url }}">
@@ -12,4 +13,24 @@
 			</div>
 		{{/if}}
   {{/each}}
+=======
+			{{#if idx}}
+				<div class="item large">
+					<img class="tag" src="{{ images.standard_resolution.url }}">
+					<div class="info">
+						<div class="avatar">
+							<img class="user" src="{{ user.profile_picture }}">
+						</div>
+						<div class="alias"><h3>{{ user.username }}</h3></div>
+						<hr>
+						<div class="comment"><p>{{ caption.text}}</p></div>
+					</div>
+				</div>
+			{{else}}
+				<div class="item">
+					<img src="{{ images.standard_resolution.url }}">
+				</div>
+			{{/if}}
+	{{/each}}
+>>>>>>> Large-Grid-LayOut
 </template>

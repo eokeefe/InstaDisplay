@@ -14,6 +14,7 @@ body {
 	width: 100%;
 	height: 100px;
 	box-shadow: 0px 3px 15px black;
+	z-index: 999;
 }
 
 #header > h1 {
@@ -32,6 +33,7 @@ body {
 	right: 0px;
 	left: 0px;
 	box-shadow: 0px -3px 15px black;
+	z-index: 999;
 }
 
 #footer > img {
@@ -43,40 +45,79 @@ body {
 }
 
 .item {
-	width: 14.669%;
 	float: left;
+	width: 10.286%;
 	margin: 1%;
+	padding: 1%;
 	background: #d2c295;
-	/*border-radius: 7px;*/ /* adjust for image roundness */
 	box-shadow: 0px 0px 25px black;
 }
 
-.item > img {
-	width: 94%;
-	margin: 3%;
-	/*border-radius: 7px;*/ /* adjust for image roundness */
-	vertical-align: middle;
-	box-shadow: 0px 0px 6px black;
-}
-
 .item.medium {
-	width: 31.335%;
-}
-
-.item.medium > img {
-	width: 96.959%;
-	margin: 1.6%;
+	width: 38.857%;
 }
 
 .item.large {
-	width: 64.669%;
+	width: 67.429%;
 }
 
-.item.large > img {
-	width: 46.874%;
-	margin: 0.85%;
+.item > img {
+	width: 100%;
+	vertical-align: top;
+	box-shadow: 0px 0px 6px black;
 }
 
-.item.large > img.user {
+img.tag {
+	width: 57.3%;
+	float: left;
+}
+
+.avatar {
+	float: left;
 	width: 15%;
+	padding: 5%;
+}
+
+.avatar > img {
+	border-radius: 50%;
+	box-shadow: 0px 0px 6px black;
+	width: 100%;
+}
+
+.name {
+	float: left;
+}
+
+.alias {
+	float: left;
+	width: 17%;
+}
+
+hr {
+	width: 30%;
+}
+
+.comment {
+	float: left;
+	width: 40%;
+	padding-left: 2%;
+}
+
+#modal {
+	position: fixed;
+	background: rgba(0,0,0,0.3);
+	top: 100px;
+	bottom: 80px;
+	left: 0px;
+	right: 0px;
+}
+
+#modal > .item.large {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	display: inline-table;
 }
