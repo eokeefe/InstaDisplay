@@ -30,7 +30,7 @@ instaARCHIVE = function (tag, id) {
 				// Tag to DB
 				for (i = 0; i < tag.length; ++i) { 
 					Tags.insert(tag[i]); 
-					// New.insert(tag[i]); // FOR TESTING ONLY!
+					New.insert(tag[i]); // FOR TESTING ONLY!
 				};
 
 				// Pagination to DB
@@ -63,9 +63,7 @@ instaUPDATE = function (tag, id) {
 };
 
 /////////////////// Instagram based functions ///////////////////
-
 /////////////////////////////////////////////////////////////////
-
 /////////////////////// APP Functionality ///////////////////////
 
 Meteor.startup(function () {
@@ -79,14 +77,14 @@ Pagi.find().observe({
 		if (doc.next_max_id !== null) instaARCHIVE(tag, doc.next_max_id)
 		else {
 			console.log("DB is currently up to date.");
-			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 10000);
+			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 3000);
 		}
 	},
 	changed: function (doc) {
 		if (doc.next_max_id !== null) instaARCHIVE(tag, doc.next_max_id)
 		else {
 			console.log("DB is currently up to date.");
-			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 10000);
+			Meteor.setInterval(function () {instaUPDATE(tag,doc.next_min_id)}, 3000);
 		}
 	}
 });
