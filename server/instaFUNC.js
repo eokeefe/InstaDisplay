@@ -28,7 +28,10 @@ instaARCHIVE = function (tag, id) {
 		try {
 			Fiber(function() { 
 				// Tag to DB
-				for (i = 0; i < tag.length; ++i) { Tags.insert(tag[i]); };
+				for (i = 0; i < tag.length; ++i) { 
+					Tags.insert(tag[i]); 
+					// New.insert(tag[i]); // FOR TESTING ONLY!
+				};
 
 				// Pagination to DB
 				var max = pag.next_max_id, min = pag.next_min_id;
@@ -49,9 +52,9 @@ instaUPDATE = function (tag, id) {
 			Fiber(function() { 
 				// Tag to DB
 				for (i = 0; i < tag.length; ++i) { 
-					// Tags.insert(tag[i]);
 					if(Tags.findOne({"images.standard_resolution.url": tag[i].images.standard_resolution.url}) === null) {
 						Tags.insert(tag[i]);
+						New.insert(tag[i]);
 					} 
 				};
 			}).run();

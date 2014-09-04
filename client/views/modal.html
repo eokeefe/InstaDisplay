@@ -1,0 +1,18 @@
+
+<template name="modal">
+	{{#if NewTag}}
+		<div id="modal">
+			<div class="item large">
+				<img class="tag" src="{{ NewTag.images.standard_resolution.url }}">
+				<div class="info">
+					<div class="avatar">
+						<img class="user" src="{{ NewTag.user.profile_picture }}">
+					</div>
+					<div class="alias"><h3>{{ NewTag.user.username }}</h3></div>
+					<hr>
+					<div class="comment"><p>{{ NewTag.caption.text}}</p></div>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+</template>
