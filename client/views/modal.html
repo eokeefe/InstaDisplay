@@ -1,6 +1,5 @@
 
 <template name="modal">
-	{{#if NewTag}}
 		<div id="modal">
 			<div class="item large">
 				<img class="tag" src="{{ NewTag.images.standard_resolution.url }}">
@@ -14,5 +13,8 @@
 				</div>
 			</div>
 		</div>
-	{{/if}}
+
+		<script type="text/javascript">
+			$("#modal").hide();
+		</script>
 </template>
