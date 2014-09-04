@@ -18,4 +18,14 @@
 			</div>
 		{{/if}}
 	{{/each}}
+
+<!-- Code for Infinite Scroll -->
+{{#if moreResults}}
+		<div id="showMoreResults">
+			<!-- Remove the word "Loadding..." when live -->
+				<span class="loading">Loading...</span>
+		</div>
+{{/if}}
+
+
 </template>
