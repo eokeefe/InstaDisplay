@@ -22,4 +22,5 @@ instagram-wrapper
 jquery
 mrt:jquery-masonry
 dburles:packery
+iron:router
 
