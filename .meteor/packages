@@ -6,7 +6,6 @@
 standard-app-packages
 autopublish
 insecure
-iron-router
 fast-render
 http
 npm
@@ -23,4 +22,3 @@ jquery
 mrt:jquery-masonry
 dburles:packery
 iron:router
-
