@@ -89,7 +89,7 @@ Pagi.find().observe({
 	}
 });
 
-var tag = "pamurico"; // Tag in question
+var tag = "porsche"; // Tag in question
 
 instaINFO(tag); // Collect information on tag
 instaARCHIVE(tag, '0'); // Collect arcived data
