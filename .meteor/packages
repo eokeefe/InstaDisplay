@@ -6,10 +6,7 @@
 standard-app-packages
 autopublish
 insecure
-iron-router
-fast-render
 http
-npm
 oauth
 oauth2
 accounts-base
@@ -18,8 +15,10 @@ underscore
 random
 service-configuration
 templating
-instagram-wrapper
 jquery
 mrt:jquery-masonry
 dburles:packery
+mrt:instagram-wrapper
+iron:router
 
+standard-minifiers
