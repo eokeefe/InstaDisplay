@@ -8,7 +8,7 @@ Fiber = Npm.require('fibers');
 // Tag info
 instaINFO = function (tag) {
 	if (tag === undefined) {console.log("tag not defined"); return }
-	instagram.tags.tag(tag, function (tag, err) { 
+	instagram.tags.tag(tag, function (tag, err) {
 		try {
 			Fiber(function () {
 				var count = tag.media_count, name = tag.name;
@@ -26,18 +26,18 @@ instaARCHIVE = function (tag, id) {
 	if (tag === undefined) {console.log("tag not defined"); return }
 	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) {
 		try {
-			Fiber(function() { 
+			Fiber(function() {
 				// Tag to DB
-				for (i = 0; i < tag.length; ++i) { 
-					Tags.insert(tag[i]); 
+				for (i = 0; i < tag.length; ++i) {
+					Tags.insert(tag[i]);
 					New.insert(tag[i]); // FOR TESTING ONLY!
 				};
 
 				// Pagination to DB
 				var max = pag.next_max_id, min = pag.next_min_id;
-				if (Pagi.find().count() === 0) { 
+				if (Pagi.find().count() === 0) {
 					Pagi.insert({next_max_id: max, next_min_id: min, type: "pagi"});
-				} else { 
+				} else {
 					Pagi.update({type: "pagi"}, {next_max_id: max, next_min_id: min, type: "pagi"});
 				};
 			}).run();
@@ -49,13 +49,13 @@ instaUPDATE = function (tag, id) {
 	if (tag === undefined) {console.log("tag not defined"); return }
 	instagram.tags.media(tag, {max_tag_id: id}, function (tag, err, pag) {
 		try {
-			Fiber(function() { 
+			Fiber(function() {
 				// Tag to DB
-				for (i = 0; i < tag.length; ++i) { 
+				for (i = 0; i < tag.length; ++i) {
 					if(Tags.findOne({"images.standard_resolution.url": tag[i].images.standard_resolution.url}) === null) {
 						Tags.insert(tag[i]);
 						New.insert(tag[i]);
-					} 
+					}
 				};
 			}).run();
 		} catch (err) { throw err; }; // Error management
@@ -72,7 +72,7 @@ Meteor.startup(function () {
 	New.remove({});
 });
 
-Pagi.find().observe({ 
+Pagi.find().observe({
 	added: function (doc) {
 		if (doc.next_max_id !== null) instaARCHIVE(tag, doc.next_max_id)
 		else {
